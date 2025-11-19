@@ -1,6 +1,6 @@
 class FilmFestivalManager {
     constructor() {
-        this.baseUrl = 'http://localhost:5174';
+        this.baseUrl = 'https://my-json-server.typicode.com/KulibinI/Lab3';
         this.cache = new Map();
         this.cacheTtl = 300000;
         this.lastController = null;
@@ -170,16 +170,12 @@ class FilmFestivalManager {
         try {
             let url = `${this.baseUrl}/movies`;
             
-            // Для json-server используем правильные параметры
             const params = new URLSearchParams();
             
-            // Поиск по всем текстовым полям
             if (filters.search) {
-                // json-server использует q для полнотекстового поиска
                 params.append('q', filters.search);
             }
             
-            // Фильтрация по жанру
             if (filters.genre) {
                 params.append('genre', filters.genre);
             }
